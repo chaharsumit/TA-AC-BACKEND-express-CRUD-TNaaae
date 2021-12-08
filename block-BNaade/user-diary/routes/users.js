@@ -35,6 +35,16 @@ router.get('/:id/edit', (req, res, next) => {
   })
 })
 
+router.get('/:id/delete', (req, res, next) => {
+  let id = req.params.id;
+  User.findByIdAndDelete(id, (err, user) => {
+    if(err){
+      return next(err);
+    }
+    res.redirect('/users');
+  })
+})
+
 router.post('/:id', (req, res, next) => {
   let id = req.params.id;
   User.findByIdAndUpdate(id, req.body, (err, updatedUser) => {

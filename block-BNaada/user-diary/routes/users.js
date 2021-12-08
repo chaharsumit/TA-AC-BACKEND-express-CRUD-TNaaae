@@ -25,6 +25,26 @@ router.get('/:id', (req, res, next) => {
   })
 })
 
+router.get('/:id/edit', (req, res, next) => {
+  let id = req.params.id;
+  User.findById(id, (err, user) => {
+    if(err){
+      return next(err);
+    }
+    res.render('editForm', { user: user });
+  })
+})
+
+router.post('/:id', (req, res, next) => {
+  let id = req.params.id;
+  User.findByIdAndUpdate(id, req.body, (err, updatedUser) => {
+    if(err){
+      return next(err);
+    }
+    res.redirect('/users/' + id);
+  });
+});
+
 router.post('/', (req, res) => {
   User.create(req.body, (err, createdUser) => {
     if(err){

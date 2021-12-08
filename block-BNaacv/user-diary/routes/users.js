@@ -15,6 +15,10 @@ router.get('/:id', (req, res) => {
   res.render('singleUser', { name: "Sumit", age: 22 });
 })
 
+router.get('/:id/edit', (req, res) => {
+  //render the updation form
+})
+
 router.post('/', (req, res) => {
   res.send(req.body);
 })

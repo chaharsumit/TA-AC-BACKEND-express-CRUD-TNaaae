@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost/samplediary', (err) => {
 let app = express();
 
 
-app.use("view engine", "ejs");
-app.use("views", path.join(__dirname + '/views'));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname , '/views'));
 
 app.use(express.urlencoded({ extended: true }));
 

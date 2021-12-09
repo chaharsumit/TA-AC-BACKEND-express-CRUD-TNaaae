@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>users home page</h1>
+  <a href="/">go to home</a>
+  <a href="/users/new">create new user</a>
+
+  <% users.forEach(user => { %>
+    <div>
+      <a href="/users/<%= user.id %>"><%= user.name %></a>
+    </div>
+  <% }) %>
+</body>
+</html>

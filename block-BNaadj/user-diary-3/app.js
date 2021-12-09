@@ -2,8 +2,8 @@ let express = require('express');
 let mongoose = require('mongoose');
 let path = require('path');
 
-let indexRouter = require('./routes/index');
-let userRouter = require('./routes/users');
+let indexRouter = require('./routes/index.js');
+let userRouter = require('./routes/users.js');
 
 mongoose.connect('mongodb://localhost/userDiaryThird', (err) => {
   console.log(err ? err : "Database is connected successfully");
